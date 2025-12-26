@@ -79,7 +79,7 @@ export default function Navbar() {
           className="hidden md:block bg-[#D32F2F] text-white px-6 py-3 rounded-xl
           font-semibold shadow hover:bg-red-700 transition"
         >
-          Free Consultation
+          For Consultation
         </button>
 
         {/* MOBILE TOGGLE */}

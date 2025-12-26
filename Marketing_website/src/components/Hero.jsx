@@ -10,27 +10,27 @@ import img4 from "../assets/video editing set up 🖥️.jpg";
 const slides = [
   {
     image: img1,
-    title: "Grow Your Business",
-    highlight: "with Marketing Master",
-    desc: "Social Media, SEO & Marketing Automation — Business at Ease.",
+    title: "Solution of your business ",
+    highlight: "problem is our business",
+    desc: " Your Business Growth Empowers us.",
   },
   {
     image: img2,
-    title: "Stay Connected",
-    highlight: "With Your Customers",
-    desc: "Build trust and engagement with powerful digital strategies.",
+    title: "A to Z methods to ",
+    highlight: "grow your business",
+    desc: "From planning - training - execution- Generation - conversion.",
   },
   {
     image: img3,
-    title: "Transform Your Brand",
-    highlight: "With Creative Marketing",
-    desc: "High-impact visuals and campaigns that convert.",
+    title: "SEO - Web Design - Lead Generation -",
+    highlight: "Lead Conversion Training - Inhouse Branding  - SMM",
+    desc: "High-impact visuals and campaigns that convert Your idea to Business.",
   },
   {
     image: img4,
-    title: "Professional Video",
-    highlight: "Marketing Solutions",
-    desc: "Content designed to grow your audience and sales.",
+    title:"Koi dhanda chhota ya bada nahi hota",
+    highlight:"dhande ko chhota ya bada karna hota ha",
+    desc: "",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
@@ -100,7 +100,7 @@ export default function Hero() {
                   Try Now
                 </button>
                 <button className="border border-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-black transition">
-                  Free Consultation
+                  For Consultation
                 </button>
               </div>
             </motion.div>
