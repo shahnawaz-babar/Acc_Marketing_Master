@@ -1,24 +1,49 @@
-import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0F0F0F] text-gray-300 pt-24 pb-10 overflow-hidden">
-      
+    <footer
+      className="
+        relative
+        bg-gradient-to-br
+        from-[#0B0B0B]
+        via-[#120A0A]
+        to-[#3B0D0D]
+        text-gray-300
+        pt-24 pb-10
+        overflow-hidden
+      "
+    >
       {/* 🔥 Brand glow */}
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#D32F2F]/20 rounded-full blur-[140px]" />
-      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#D32F2F]/10 rounded-full blur-[160px]" />
+      <div className="absolute -top-40 -right-40 w-[520px] h-[520px] bg-[#D32F2F]/25 rounded-full blur-[150px]" />
+      <div className="absolute -bottom-40 -left-40 w-[520px] h-[520px] bg-[#D32F2F]/15 rounded-full blur-[180px]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-
         {/* TOP GRID */}
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
-
           {/* BRAND */}
           <div>
-            <h2 className="text-2xl font-extrabold text-white">
-              <span className="text-[#D32F2F]">Marketing</span>{" "}
-              <span className="text-yellow-500">Master</span>
-            </h2>
+<h2
+  className="
+    text-2xl font-extrabold
+    bg-gradient-to-r from-orange-400 via-yellow-200 to-orange-500
+    bg-clip-text text-transparent
+    drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]
+  "
+>
+  Acc Marketing Master
+</h2>
+
+
+
 
             <p className="mt-5 text-gray-400 text-sm leading-relaxed">
               We help businesses grow through strategic digital marketing,
@@ -31,8 +56,11 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center
-                  hover:bg-[#D32F2F] transition"
+                  className="
+                    w-10 h-10 rounded-full bg-white/10
+                    flex items-center justify-center
+                    hover:bg-[#D32F2F] transition
+                  "
                 >
                   <Icon className="w-5 h-5 text-white" />
                 </a>
@@ -46,16 +74,18 @@ export default function Footer() {
               Quick Links
             </h3>
             <ul className="space-y-4 text-sm">
-              {["Home", "Services", "Pricing", "About", "Contact"].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
-                    className="hover:text-[#D32F2F] transition"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              {["Home", "Services", "Pricing", "About", "Contact"].map(
+                (item) => (
+                  <li key={item}>
+                    <a
+                      href="#"
+                      className="hover:text-[#D32F2F] transition"
+                    >
+                      {item}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -98,12 +128,12 @@ export default function Footer() {
 
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-[#D32F2F]" />
-                <span>+91 XXXXX XXXXX</span>
+                <span>+91 98935 09493</span>
               </li>
 
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-[#D32F2F]" />
-                <span>contact@marketingmaster.com</span>
+                <span>acemarketing.masters@gmail.com</span>
               </li>
             </ul>
           </div>

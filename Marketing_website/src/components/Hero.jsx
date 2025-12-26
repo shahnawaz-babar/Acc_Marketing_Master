@@ -81,7 +81,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 2 }}
               className="max-w-2xl text-white"
             >
               <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
