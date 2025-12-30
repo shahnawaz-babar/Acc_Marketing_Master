@@ -17,7 +17,7 @@ export default function Home() {
       <Process />   {/* 👈 ADD HERE */}
       <Projects/>
       <EnquiryForm />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
