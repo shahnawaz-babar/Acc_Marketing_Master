@@ -22,7 +22,7 @@ const slides = [
   },
   {
     image: img3,
-    title: "We Help You  ",
+    title: "We Help You",
     highlight: "Get More Customers",
     desc: "SEO, Web Design, Lead Generation & Conversion Training that grows your business.",
   },
@@ -37,7 +37,7 @@ const slides = [
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  // AUTO SLIDE
+  // 🔁 AUTO SLIDE
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -45,20 +45,34 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
+  // ⬅️ ➡️ MANUAL NAVIGATION
   const prev = () =>
     setIndex(index === 0 ? slides.length - 1 : index - 1);
   const next = () => setIndex((index + 1) % slides.length);
 
+  // 📩 SCROLL TO CONTACT
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  // 🛠️ SCROLL TO SERVICES
+  const scrollToServices = () => {
+    document.getElementById("services")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="relative h-[90vh] overflow-hidden" id="home">
-      {/* BACKGROUND IMAGE */}
+      {/* 🖼️ BACKGROUND IMAGE */}
       <AnimatePresence mode="sync">
         <motion.div
           key={index}
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url(${slides[index].image})`,
-            backgroundColor: "#0f172a",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -67,7 +81,7 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* OVERLAY */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* CONTENT */}
@@ -95,11 +109,9 @@ export default function Hero() {
                 <span className="text-[#F44336]">
                   {slides[index].highlight}
                   {slides[index].author && (
-          <span className="ml-3 text-sm font-semibold text-orange-400 whitespace-nowrap drop-shadow-[0_0_6px_rgba(255,165,0,0.6)]">
-  — {slides[index].author}
-</span>
-
-
+                    <span className="ml-3 text-sm font-semibold text-orange-400">
+                      — {slides[index].author}
+                    </span>
                   )}
                 </span>
               </h2>
@@ -113,10 +125,17 @@ export default function Hero() {
 
               {/* BUTTONS */}
               <div className="mt-10 flex gap-6 justify-center">
-                <button className="bg-[#F44336] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition">
+                <button
+                  onClick={scrollToContact}
+                  className="bg-[#F44336] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition"
+                >
                   Get Consultation
                 </button>
-                <button className="border border-white/40 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-black transition">
+
+                <button
+                  onClick={scrollToServices}
+                  className="border border-white/40 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-black transition"
+                >
                   View Services
                 </button>
               </div>
@@ -125,7 +144,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ARROWS */}
+      {/* ⬅️ ➡️ ARROWS */}
       <button
         onClick={prev}
         className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
