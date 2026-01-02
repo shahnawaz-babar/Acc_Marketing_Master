@@ -18,7 +18,7 @@ export default function Footer() {
         via-[#120A0A]
         to-[#3B0D0D]
         text-gray-300
-        pt-24 pb-10
+        pt-24 pb-20
         overflow-hidden
       "
     >
@@ -29,21 +29,19 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-6">
         {/* TOP GRID */}
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
+          
           {/* BRAND */}
           <div>
-<h2
-  className="
-    text-2xl font-extrabold
-    bg-gradient-to-r from-orange-400 via-yellow-200 to-orange-500
-    bg-clip-text text-transparent
-    drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]
-  "
->
-  Acc Marketing Master
-</h2>
-
-
-
+            <h2
+              className="
+                text-2xl font-extrabold
+                bg-gradient-to-r from-orange-400 via-yellow-200 to-orange-500
+                bg-clip-text text-transparent
+                drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]
+              "
+            >
+              Acc Marketing Master
+            </h2>
 
             <p className="mt-5 text-gray-400 text-sm leading-relaxed">
               We help businesses grow through strategic digital marketing,
@@ -138,22 +136,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* DIVIDER */}
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-          <p>
-            © {new Date().getFullYear()} Marketing Master. All rights reserved.
-          </p>
-
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-[#D32F2F] transition">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-[#D32F2F] transition">
-              Terms of Service
-            </a>
-          </div>
-        </div>
+        {/* ❌ Bottom copyright & policy section REMOVED */}
       </div>
     </footer>
   );
