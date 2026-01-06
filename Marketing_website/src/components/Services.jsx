@@ -55,14 +55,19 @@ const services = [
 ];
 
 export default function Services() {
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <section className="relative pt-16 pb-28 bg-[#F8F9FB]" id="services">
-
       {/* HERO → SERVICES CONNECTOR */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white to-[#F8F9FB]" />
 
       <div className="relative max-w-7xl mx-auto px-6">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -131,11 +136,13 @@ export default function Services() {
             Let’s create a digital strategy that delivers real results.
           </p>
 
-          <button className="mt-8 bg-white text-[#D32F2F] px-10 py-4 rounded-xl font-semibold hover:scale-105 transition">
-            Free Consultation
+          <button
+            onClick={scrollToContact}
+            className="mt-8 bg-white text-[#D32F2F] px-10 py-4 rounded-xl font-semibold hover:scale-105 transition"
+          >
+            For Consultation
           </button>
         </motion.div>
-
       </div>
     </section>
   );
