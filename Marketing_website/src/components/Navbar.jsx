@@ -50,7 +50,7 @@ export default function Navbar() {
     leading-tight
   "
 >
-  Acc Marketing Master
+  Ace Marketing Master
 </h1>
 
 
