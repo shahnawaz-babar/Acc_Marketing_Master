@@ -69,7 +69,10 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-[90vh] overflow-hidden" id="home">
+    <section
+      id="home"
+      className="relative min-h-screen overflow-hidden"
+    >
       {/* 🖼️ BACKGROUND IMAGE */}
       <AnimatePresence mode="sync">
         <motion.div
@@ -83,11 +86,11 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* DARK OVERLAY (NON CLICKABLE) */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
 
       {/* CONTENT */}
-      <div className="relative z-20 h-full flex items-center justify-center">
+      <div className="relative z-20 min-h-screen flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatePresence mode="wait">
             <motion.div
