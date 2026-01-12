@@ -46,9 +46,13 @@ export default function Hero() {
   }, []);
 
   // ⬅️ ➡️ MANUAL NAVIGATION
-  const prev = () =>
-    setIndex(index === 0 ? slides.length - 1 : index - 1);
-  const next = () => setIndex((index + 1) % slides.length);
+  const prev = () => {
+    setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const next = () => {
+    setIndex((prev) => (prev + 1) % slides.length);
+  };
 
   // 📩 SCROLL TO CONTACT
   const scrollToContact = () => {
@@ -70,10 +74,8 @@ export default function Hero() {
       <AnimatePresence mode="sync">
         <motion.div
           key={index}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${slides[index].image})`,
-          }}
+          className="absolute inset-0 bg-cover bg-center z-0"
+          style={{ backgroundImage: `url(${slides[index].image})` }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -81,11 +83,11 @@ export default function Hero() {
         />
       </AnimatePresence>
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* DARK OVERLAY (NON CLICKABLE) */}
+      <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
 
       {/* CONTENT */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-20 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatePresence mode="wait">
             <motion.div
@@ -147,20 +149,20 @@ export default function Hero() {
       {/* ⬅️ ➡️ ARROWS */}
       <button
         onClick={prev}
-        className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
+        className="absolute z-30 left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
       >
-        <ChevronLeft />
+        <ChevronLeft size={28} />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
+        className="absolute z-30 right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
       >
-        <ChevronRight />
+        <ChevronRight size={28} />
       </button>
 
       {/* DOTS */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute z-30 bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
         {slides.map((_, i) => (
           <div
             key={i}
