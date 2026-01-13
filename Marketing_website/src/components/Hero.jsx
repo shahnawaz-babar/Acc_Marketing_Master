@@ -10,8 +10,8 @@ import img4 from "../assets/video editing set up 🖥️.jpg";
 const slides = [
   {
     image: img1,
-    title: "Solution of your business",
-    highlight: "problem is our business",
+    title: "Solution of your business problem ,",
+    highlight: "is our business",
     desc: "Your business growth empowers us.",
   },
   {
