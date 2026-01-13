@@ -16,30 +16,31 @@ import s5 from "../assets/service5.jpg";
 import s6 from "../assets/service6.jpg";
 
 const services = [
+
+   {
+    title: "Search Engine & Google My Business Optimization",
+    desc: "Rank higher on Google and get organic traffic that converts.",
+    icon: Search,
+    image: s4,
+  },
   {
-    title: "Social Media Marketing",
+    title: "Social Media Management & Marketing",
     desc: "Grow your brand visibility and engagement across all major platforms.",
     icon: BarChart,
     image: s1,
   },
   {
-    title: "Video & Reels Marketing",
+    title: "Content Creation",
     desc: "High-converting short videos and reels for maximum reach.",
     icon: Video,
     image: s2,
   },
   {
-    title: "Content & Copywriting",
+    title: "Content Writing & Creation",
     desc: "Powerful captions, ads and content that convert visitors to customers.",
     icon: PenTool,
     image: s3,
-  },
-  {
-    title: "SEO Optimization",
-    desc: "Rank higher on Google and get organic traffic that converts.",
-    icon: Search,
-    image: s4,
-  },
+  }, 
   {
     title: "Website Design",
     desc: "Modern, fast and responsive websites built for conversions.",
@@ -47,7 +48,7 @@ const services = [
     image: s5,
   },
   {
-    title: "Paid Ads & Campaigns",
+    title: "Lead Generation by Meta & Google Ads",
     desc: "ROI-focused Google Ads & Social Media advertising.",
     icon: Megaphone,
     image: s6,
