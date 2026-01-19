@@ -2,15 +2,20 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+// BACKGROUND IMAGES
 import img1 from "../assets/Digital marketing agency.jpg";
 import img2 from "../assets/Stay Connected with Mann Technologies!.jpg";
 import img3 from "../assets/Transform your footage like a pro.jpg";
 import img4 from "../assets/video editing set up 🖥️.jpg";
 
+// TRANSPARENT PERSON IMAGES
+import srkImg from "../assets/srk.png";
+import gajendraImg from "../assets/GajendraSir.png";
+
 const slides = [
   {
     image: img1,
-    title: "Solution of your business problem ,",
+    title: "Solution of your business problem,",
     highlight: "is our business",
     desc: "Your business growth empowers us.",
   },
@@ -28,16 +33,14 @@ const slides = [
   },
   {
     image: img4,
-    title: "Koi Dhanda Chhota Nahi Hota,",
-    highlight: "Use Chote se Bada Banana Hota Hai",
-    author: "by Gajendra",
+    title: "Special Zig Zag Slide",
   },
 ];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
 
-  // 🔁 AUTO SLIDE
+  // AUTO SLIDE
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
@@ -45,7 +48,6 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  // ⬅️ ➡️ MANUAL NAVIGATION
   const prev = () => {
     setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
@@ -54,26 +56,9 @@ export default function Hero() {
     setIndex((prev) => (prev + 1) % slides.length);
   };
 
-  // 📩 SCROLL TO CONTACT
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
-  // 🛠️ SCROLL TO SERVICES
-  const scrollToServices = () => {
-    document.getElementById("services")?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <section
-      id="home"
-      className="relative min-h-screen overflow-hidden"
-    >
-      {/* 🖼️ BACKGROUND IMAGE */}
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* BACKGROUND */}
       <AnimatePresence mode="sync">
         <motion.div
           key={index}
@@ -82,94 +67,102 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.8, ease: "easeInOut" }}
+          transition={{ duration: 1.5 }}
         />
       </AnimatePresence>
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/60 z-10" />
 
       {/* CONTENT */}
-      <div className="relative z-20 min-h-screen flex items-center justify-center">
-        <div className="max-w-7xl mx-auto px-6">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 1.5 }}
-              className="max-w-3xl mx-auto text-white text-center"
-            >
-              {/* HEADING */}
-              <h2
-                className={`font-extrabold leading-tight ${
-                  index === 3
-                    ? "text-4xl md:text-5xl"
-                    : "text-5xl md:text-6xl"
-                }`}
-              >
-                {slides[index].title}
-                <br />
-                <span className="text-[#F44336]">
-                  {slides[index].highlight}
-                  {slides[index].author && (
-                    <span className="ml-3 text-sm font-semibold text-orange-400">
-                      — {slides[index].author}
-                    </span>
-                  )}
-                </span>
-              </h2>
+      <div className="relative z-20 min-h-screen flex items-center justify-center px-6">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 1 }}
+            className="w-full max-w-6xl text-white"
+          >
+            {/* 🔥 LAST SLIDE */}
+            {index === 3 ? (
+              <div className="w-full flex flex-col items-center justify-center gap-16">
 
-              {/* DESCRIPTION */}
-              {slides[index].desc && (
-                <p className="mt-6 text-lg text-gray-200 max-w-xl mx-auto">
-                  {slides[index].desc}
-                </p>
-              )}
+                {/* ROW 1 */}
+                <div className="flex items-center justify-center gap-10 w-full max-w-5xl">
+                  <div className="flex-1">
+                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                      Koi Dhanda Chhota Nahi Hota
+                    </h2>
+                  </div>
 
-              {/* BUTTONS */}
-              <div className="mt-10 flex gap-6 justify-center">
-                <button
-                  onClick={scrollToContact}
-                  className="bg-[#F44336] px-8 py-4 rounded-xl font-semibold hover:scale-105 transition"
-                >
-                  Get Consultation
-                </button>
+                  <img
+                    src={srkImg}
+                    alt="SRK"
+                    className="w-36 md:w-44 drop-shadow-2xl"
+                  />
+                </div>
 
-                <button
-                  onClick={scrollToServices}
-                  className="border border-white/40 px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-black transition"
-                >
-                  View Services
-                </button>
+                {/* ROW 2 */}
+                <div className="flex items-center justify-center gap-10 w-full max-w-5xl">
+                  <img
+                    src={gajendraImg}
+                    alt="Gajendra Sir"
+                    className="w-44 md:w-52 drop-shadow-2xl"
+                  />
+
+                  <div className="flex-1">
+                    <p className="text-4xl md:text-5xl font-extrabold leading-tight text-white">
+                      Usse Chote se Bada Banana Hota Hai
+                    </p>
+                  </div>
+                </div>
+
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+            ) : (
+              /* NORMAL SLIDES */
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+                  {slides[index].title}
+                  <br />
+                  <span className="text-[#F44336]">
+                    {slides[index].highlight}
+                  </span>
+                </h2>
+
+                {slides[index].desc && (
+                  <p className="mt-6 text-lg text-gray-200">
+                    {slides[index].desc}
+                  </p>
+                )}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* ⬅️ ➡️ ARROWS */}
+      {/* ARROWS */}
       <button
         onClick={prev}
-        className="absolute z-30 left-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 p-3 rounded-full hover:bg-white/40"
       >
-        <ChevronLeft size={28} />
+        <ChevronLeft />
       </button>
 
       <button
         onClick={next}
-        className="absolute z-30 right-6 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-3 rounded-full text-white"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 bg-white/20 p-3 rounded-full hover:bg-white/40"
       >
-        <ChevronRight size={28} />
+        <ChevronRight />
       </button>
 
       {/* DOTS */}
-      <div className="absolute z-30 bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-3">
         {slides.map((_, i) => (
           <div
             key={i}
-            className={`h-2 w-2 rounded-full ${
+            className={`w-2 h-2 rounded-full ${
               i === index ? "bg-white" : "bg-white/40"
             }`}
           />
