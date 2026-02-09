@@ -113,9 +113,9 @@ export default function Services() {
                 </h3>
                 <p className="mt-3 text-gray-600">{service.desc}</p>
 
-                <button className="mt-6 text-[#D32F2F] font-semibold hover:underline">
+                {/* <button className="mt-6 text-[#D32F2F] font-semibold hover:underline">
                   Learn More →
-                </button>
+                </button> */}
               </div>
             </motion.div>
           ))}
