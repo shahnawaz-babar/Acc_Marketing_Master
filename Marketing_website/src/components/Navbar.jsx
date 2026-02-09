@@ -39,22 +39,18 @@ export default function Navbar() {
           onClick={() => scrollToSection("home")}
           className="flex items-center gap-3 cursor-pointer"
         >
-          <img src={logo} alt="Acc Marketing Master" className="h-9 w-9 rounded" />
-     <h1
-  className="
-    text-lg md:text-xl lg:text-2xl
-    font-extrabold tracking-wide
-    bg-gradient-to-b from-yellow-300 via-orange-400 to-red-600
-    bg-clip-text text-transparent
-    drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]
-    leading-tight
-  "
->
-  Ace Marketing Master
-</h1>
+          <img src={logo} alt="Ace Marketing Master" className="h-9 w-9 rounded" />
 
-
-
+          <h1
+            className="
+              text-lg md:text-xl lg:text-2xl
+              font-extrabold tracking-wide
+              text-[#D32F2F]
+              hover:text-red-700 transition
+            "
+          >
+            Ace Marketing Master
+          </h1>
         </div>
 
         {/* DESKTOP MENU */}
@@ -102,7 +98,7 @@ export default function Navbar() {
           >
             <div className="flex justify-between items-center px-6 h-20">
               <h2 className="text-xl font-bold text-[#D32F2F]">
-                Acc Marketing Master
+                Ace Marketing Master
               </h2>
               <X size={30} onClick={() => setOpen(false)} />
             </div>
