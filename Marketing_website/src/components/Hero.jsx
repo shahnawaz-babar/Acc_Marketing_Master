@@ -29,7 +29,7 @@ const slides = [
     image: img3,
     title: "We Help You",
     highlight: "Get More Customers",
-    desc: "SEO, Web Design, Lead Generation & Conversion Training that grows your business.",
+    desc: "SEO|Web Design|Lead Generation|Conversion Training that grows your business.",
   },
   {
     image: img4,
