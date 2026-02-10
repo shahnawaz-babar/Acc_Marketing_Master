@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { User, Mail, Phone, MessageSquare } from "lucide-react";
 
 export default function EnquiryForm() {
@@ -21,11 +22,14 @@ export default function EnquiryForm() {
 
     const formBody = new URLSearchParams(formData);
 
-    await fetch("https://script.google.com/macros/s/AKfycbyuwRu65B5td9AuvYaxIG5mTuUaXX3qzZF5yAReiCsSYFmdphkgin4YQ7O7pvDrPpF_qg/exec", {
-      method: "POST",
-      mode: "no-cors",
-      body: formBody,
-    });
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbyuwRu65B5td9AuvYaxIG5mTuUaXX3qzZF5yAReiCsSYFmdphkgin4YQ7O7pvDrPpF_qg/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: formBody,
+      }
+    );
 
     alert("Enquiry submitted successfully ✅");
 
@@ -38,14 +42,17 @@ export default function EnquiryForm() {
   };
 
   return (
-<section className="py-32 bg-gradient-to-b from-[#FDECEC] via-[#F8F9FB] to-white" id="contact">
+    <section
+      className="py-32 bg-gradient-to-b from-[#FDECEC] via-[#F8F9FB] to-white"
+      id="contact"
+    >
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
         {/* LEFT CONTENT */}
         <div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E1E1E]">
             Let’s Talk About Your{" "}
-<span className="text-[#D32F2F] drop-shadow-sm">Business</span>
+            <span className="text-[#D32F2F] drop-shadow-sm">Business</span>
           </h2>
 
           <p className="mt-6 text-lg text-gray-600 max-w-xl">
@@ -61,55 +68,60 @@ export default function EnquiryForm() {
         </div>
 
         {/* RIGHT FORM */}
-<div className="rounded-3xl p-[2px] bg-gradient-to-b from-[#FDECEC] to-transparent">
-  <div className="bg-white rounded-3xl p-10 shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
+        <div className="rounded-3xl p-[2px] bg-gradient-to-b from-[#FDECEC] to-transparent">
+          <div className="bg-white rounded-3xl p-10 shadow-[0_20px_50px_rgba(0,0,0,0.12)]">
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
 
-            <InputField
-              icon={<User />}
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
+              <InputField
+                icon={<User />}
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
 
-            <InputField
-              icon={<Mail />}
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
+              <InputField
+                icon={<Mail />}
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
 
-            <InputField
-              icon={<Phone />}
-              name="phone"
-              placeholder="Phone Number"
-              value={formData.phone}
-              onChange={handleChange}
-            />
+              <InputField
+                icon={<Phone />}
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+              />
 
-            <TextareaField
-              icon={<MessageSquare />}
-              name="message"
-              placeholder="Tell us about your project..."
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
+              <TextareaField
+                icon={<MessageSquare />}
+                name="message"
+                placeholder="Tell us about your project..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
 
-            <button
-              type="submit"
-              className="w-full bg-[#D32F2F] text-white py-4 rounded-xl font-semibold hover:bg-red-700 transition"
-            >
-              Submit Enquiry
-            </button>
+              {/* ✅ ANIMATED SUBMIT BUTTON */}
+              <motion.button
+                type="submit"
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="w-full bg-[#D32F2F] text-white py-4 rounded-xl
+                font-semibold hover:bg-red-700 transition"
+              >
+                Submit Enquiry
+              </motion.button>
 
-          </form>
-        </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -125,7 +137,8 @@ const InputField = ({ icon, ...props }) => (
     </span>
     <input
       {...props}
-      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D32F2F] outline-none"
+      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200
+      focus:ring-2 focus:ring-[#D32F2F] outline-none"
     />
   </div>
 );
@@ -138,7 +151,8 @@ const TextareaField = ({ icon, ...props }) => (
     <textarea
       {...props}
       rows="5"
-      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-[#D32F2F] outline-none resize-none"
+      className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200
+      focus:ring-2 focus:ring-[#D32F2F] outline-none resize-none"
     />
   </div>
 );

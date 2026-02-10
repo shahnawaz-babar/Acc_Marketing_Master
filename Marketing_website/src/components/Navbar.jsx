@@ -33,21 +33,15 @@ export default function Navbar() {
       ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
-
         {/* LOGO */}
         <div
           onClick={() => scrollToSection("home")}
           className="flex items-center gap-3 cursor-pointer"
         >
           <img src={logo} alt="Ace Marketing Master" className="h-9 w-9 rounded" />
-
           <h1
-            className="
-              text-lg md:text-xl lg:text-2xl
-              font-extrabold tracking-wide
-              text-[#D32F2F]
-              hover:text-red-700 transition
-            "
+            className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-wide
+            text-[#D32F2F] hover:text-red-700 transition"
           >
             Ace Marketing Master
           </h1>
@@ -69,14 +63,17 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP CTA */}
-        <button
+        {/* DESKTOP CTA BUTTON */}
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
           onClick={() => scrollToSection("contact")}
           className="hidden md:block bg-[#D32F2F] text-white px-6 py-3 rounded-xl
           font-semibold shadow hover:bg-red-700 transition"
         >
           For Consultation
-        </button>
+        </motion.button>
 
         {/* MOBILE TOGGLE */}
         <button
@@ -114,12 +111,16 @@ export default function Navbar() {
                 </li>
               ))}
 
-              <button
+              {/* MOBILE CTA */}
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
                 onClick={() => scrollToSection("contact")}
                 className="mt-6 bg-[#D32F2F] text-white py-4 rounded-xl font-semibold"
               >
                 Free Consultation
-              </button>
+              </motion.button>
             </ul>
           </motion.div>
         )}

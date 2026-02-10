@@ -16,8 +16,7 @@ import s5 from "../assets/service5.jpg";
 import s6 from "../assets/service6.jpg";
 
 const services = [
-
-   {
+  {
     title: "Search Engine & Google My Business Optimization",
     desc: "Rank higher on Google and get organic traffic that converts.",
     icon: Search,
@@ -40,7 +39,7 @@ const services = [
     desc: "Powerful captions, ads and content that convert visitors to customers.",
     icon: PenTool,
     image: s3,
-  }, 
+  },
   {
     title: "Website Design",
     desc: "Modern, fast and responsive websites built for conversions.",
@@ -112,10 +111,6 @@ export default function Services() {
                   {service.title}
                 </h3>
                 <p className="mt-3 text-gray-600">{service.desc}</p>
-
-                {/* <button className="mt-6 text-[#D32F2F] font-semibold hover:underline">
-                  Learn More →
-                </button> */}
               </div>
             </motion.div>
           ))}
@@ -137,12 +132,17 @@ export default function Services() {
             Let’s create a digital strategy that delivers real results.
           </p>
 
-          <button
+          {/* ✅ SAME PRESS EFFECT BUTTON */}
+          <motion.button
             onClick={scrollToContact}
-            className="mt-8 bg-white text-[#D32F2F] px-10 py-4 rounded-xl font-semibold hover:scale-105 transition"
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="mt-8 bg-white text-[#D32F2F] px-10 py-4
+            rounded-xl font-semibold shadow-lg"
           >
             For Consultation
-          </button>
+          </motion.button>
         </motion.div>
       </div>
     </section>
