@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.marketingmaster.co.in"
+        }
+      ],
+      "destination": "https://marketingmaster.co.in/$1",
+      "permanent": true
+    }
+  ]
+}
