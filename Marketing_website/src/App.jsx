@@ -1,12 +1,21 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home";
-import CallButton from "./components/CallButton"; 
-import WhatsAppButton from "./components/WhatsAppButton";
+import IndorePage from "./pages/IndorePage";
+import CallButton from "./components/CallButton";
+
 export default function App() {
   return (
-    <>
-      <Home />
-      {/* <WhatsAppButton /> */}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/digital-marketing-agency-in-indore"
+          element={<IndorePage />}
+        />
+      </Routes>
+
       <CallButton />
-    </>
+    </Router>
   );
 }

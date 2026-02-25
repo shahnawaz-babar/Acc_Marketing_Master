@@ -40,7 +40,7 @@ export default function Footer() {
                 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]
               "
             >
-              Acc Marketing Master
+            Marketing Master
             </h2>
 
             <p className="mt-5 text-gray-400 text-sm leading-relaxed">

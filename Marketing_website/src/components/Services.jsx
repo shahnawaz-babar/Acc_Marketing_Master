@@ -77,12 +77,12 @@ export default function Services() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#1E1E1E]">
-            Our <span className="text-[#D32F2F]">Services</span>
-          </h1>
+  Top Digital Marketing Services in <span className="text-[#D32F2F]">Indore</span>
+</h1>
+
 
           <p className="mt-5 text-lg text-gray-600">
-            Everything you need to grow your brand digitally — strategy, design,
-            marketing and performance.
+            Marketing Master is a top marketing agency in Indore offering complete digital marketing services including SEO, social media marketing, content creation and lead generation for businesses in Indore.
           </p>
         </motion.div>
 

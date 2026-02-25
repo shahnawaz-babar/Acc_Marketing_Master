@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
@@ -9,12 +8,12 @@ import Process from "../components/Process";
 import EnquiryForm from "../components/EnquiryForm";
 
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
   useEffect(() => {
     document.title =
-      "Digital Marketing Company in Indore | SEO, Branding & Web Design – Ace Marketing Master";
+      "Digital Marketing Company in Indore | SEO, Branding & Web Design | Ace Marketing Master | Top Marketing Agency in Indore";
 
-    // optional meta description
-    const metaDesc = document.querySelector("meta[name='description']");
+    const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute(
         "content",
@@ -25,8 +24,8 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
-      <Hero />
+      <Navbar activeSlide={activeSlide} />
+      <Hero setActiveSlide={setActiveSlide} />
       <Services />
       <Process />
       <Projects />

@@ -6,11 +6,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import img1 from "../assets/Digital marketing agency.jpg";
 import img2 from "../assets/Stay Connected with Mann Technologies!.jpg";
 import img3 from "../assets/Transform your footage like a pro.jpg";
-import img4 from "../assets/video editing set up 🖥️.jpg";
-
-// PERSON IMAGES
-import srkImg from "../assets/srk.png";
-import gajendraImg from "../assets/GajendraSir.png";
+import digitalMarketingImg from "../assets/Digita_marketingl.jpg";
+import koiDhandaImg from "../assets/Koi_dhanda.jpeg";
 
 const slides = [
   {
@@ -29,15 +26,29 @@ const slides = [
     image: img3,
     title: "We Help You",
     highlight: "Get More Customers",
-    desc: "SEO | WEB DESIGN | LED GENERATION | CONVERSION TRAINING THAT GROWS YOUR BUSINESS",
+    desc:
+      "SEO | WEB DESIGN | LEAD GENERATION | CONVERSION TRAINING THAT GROWS YOUR BUSINESS",
   },
+  // ✅ NEW DIGITAL MARKETING SLIDE
   {
-    image: img4,
+  image: digitalMarketingImg,
+  title:     "We Help Brands to get more customers / Leads",
+  highlight: "Help customers to Find the right solution",
+ desc:"Help businesses to run smoothly use Technologies",
+  },
+  // ✅ LAST SLIDE
+  {
+    image: koiDhandaImg,
+    custom: "poster",
   },
 ];
 
-export default function Hero() {
+export default function Hero({ setActiveSlide }) {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveSlide(index);
+  }, [index, setActiveSlide]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -48,94 +59,89 @@ export default function Hero() {
 
   const prev = () =>
     setIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
   const next = () =>
     setIndex((prev) => (prev + 1) % slides.length);
 
   return (
     <section id="home" className="relative min-h-[100svh] overflow-hidden">
+
       {/* BACKGROUND */}
       <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${slides[index].image})` }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2 }}
-        />
+        {slides[index].custom === "poster" ? (
+          <motion.img
+            key={index}
+            src={slides[index].image}
+            className="absolute inset-0 w-full h-full object-contain bg-[#F7F1E3]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+          />
+        ) : (
+          <motion.div
+            key={index}
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slides[index].image})` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+          />
+        )}
       </AnimatePresence>
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* DARK OVERLAY (NOT FOR POSTER) */}
+      {slides[index].custom !== "poster" && (
+        <div className="absolute inset-0 bg-black/60" />
+      )}
 
-      {/* CONTENT — TRUE CENTER */}
-      <div className="relative z-20 min-h-[100svh] flex items-center justify-center">
-        <AnimatePresence mode="wait">
+      {/* ================= CONTENT ================= */}
+
+      {/* NORMAL SLIDES */}
+      {!slides[index].custom && (
+        <div className="relative z-20 min-h-[100svh] flex items-center justify-center">
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -40 }}
             transition={{ duration: 0.8 }}
-            className="w-full max-w-6xl text-white"
+            className="w-full max-w-3xl text-white text-center px-6"
           >
-            {/* 🔥 LAST SLIDE */}
-            {index === 3 ? (
-              <div className="flex flex-col gap-8">
+            <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
+              {slides[index].title}
+              <br />
+              <span className="text-[#F44336]">
+                {slides[index].highlight}
+              </span>
+            </h2>
 
-                {/* ROW 1 */}
-                <div className="flex flex-row items-center gap-4 max-w-5xl mx-auto px-6">
-                  <h2 className="flex-1 text-base sm:text-lg md:text-4xl font-extrabold leading-snug">
-                    Koi dhanda chhota nahi hota <br />
-                    aur dhande se bada koi dharam nahi hota
-                  </h2>
-
-                  <img
-                    src={srkImg}
-                    alt="SRK"
-                    className="w-20 sm:w-24 md:w-44 shrink-0 drop-shadow-2xl"
-                  />
-                </div>
-
-                {/* ROW 2 */}
-                <div className="flex flex-row items-center gap-4 max-w-4xl mx-auto px-6">
-                  <img
-                    src={gajendraImg}
-                    alt="Gajendra Sir"
-                    className="w-20 sm:w-28 md:w-52 shrink-0 drop-shadow-2xl"
-                  />
-
-                  <h2 className="flex-1 text-base sm:text-lg md:text-4xl font-extrabold leading-snug text-right">
-                    Koi dhanda chhota nahi hota, <br />
-                    usse chhote se bada banana hota hai
-                  </h2>
-                </div>
-
-              </div>
-            ) : (
-              /* NORMAL SLIDES */
-              <div className="text-center max-w-3xl mx-auto px-6">
-                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                  {slides[index].title}
-                  <br />
-                  <span className="text-[#F44336]">
-                    {slides[index].highlight}
-                  </span>
-                </h2>
-
-                {slides[index].desc && (
-                  <p className="mt-6 text-lg text-gray-200">
-                    {slides[index].desc}
-                  </p>
-                )}
-              </div>
-            )}
+            <p className="mt-6 text-lg text-gray-200">
+              {slides[index].desc}
+            </p>
           </motion.div>
-        </AnimatePresence>
-      </div>
+        </div>
+      )}
 
-      {/* ARROWS — MOBILE + DESKTOP */}
+      {/* ✅ DIGITAL MARKETING CUSTOM SLIDE */}
+      {slides[index].custom === "digital" && (
+        <div className="relative z-20 min-h-[100svh] flex items-center justify-center text-white px-6">
+          <div className="bg-black/70 p-10 rounded-2xl space-y-6 max-w-2xl">
+            <p className="text-xl md:text-2xl font-semibold">
+              We Help Brands to get more customers / Leads
+            </p>
+            <p className="text-xl md:text-2xl font-semibold">
+              Help customers to Find the right solution
+            </p>
+            <p className="text-xl md:text-2xl font-semibold">
+              Help businesses to run smoothly use Technologies
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* ARROWS */}
       <button
         onClick={prev}
         className="absolute left-3 top-1/2 -translate-y-1/2 z-30 bg-white/20 p-2 md:p-3 rounded-full"

@@ -58,7 +58,7 @@ export default function Projects() {
           className="text-center max-w-3xl mx-auto mb-24"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-[#1E1E1E]">
-            Our <span className="text-[#D32F2F]">Impactful Projects</span>
+            Our <span className="text-[#D32F2F]">Impactful Initiative</span>
           </h2>
           <p className="mt-6 text-lg text-gray-600">
             Real results, real growth — see how we help brands scale digitally.

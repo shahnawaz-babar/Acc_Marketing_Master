@@ -11,9 +11,11 @@ const navItems = [
   { label: "Contact", id: "contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ activeSlide }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const isLightSlide = activeSlide === 4;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -33,24 +35,29 @@ export default function Navbar() {
       ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+
         {/* LOGO */}
         <div
           onClick={() => scrollToSection("home")}
           className="flex items-center gap-3 cursor-pointer"
         >
           <img src={logo} alt="Ace Marketing Master" className="h-9 w-9 rounded" />
-          <h1
-            className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-wide
-            text-[#D32F2F] hover:text-red-700 transition"
-          >
-            Ace Marketing Master
+          <h1 className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-wide
+            text-[#D32F2F] hover:text-red-700 transition">
+            Marketing Master
           </h1>
         </div>
 
         {/* DESKTOP MENU */}
         <ul
-          className={`hidden md:flex gap-10 font-semibold
-          ${scrolled ? "text-gray-900" : "text-white"}`}
+          className={`hidden md:flex gap-10 font-semibold transition-colors duration-300
+          ${
+            scrolled
+              ? "text-gray-900"
+              : isLightSlide
+              ? "text-[#D32F2F]"
+              : "text-white"
+          }`}
         >
           {navItems.map((item) => (
             <li
@@ -63,7 +70,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* DESKTOP CTA BUTTON */}
+        {/* DESKTOP CTA */}
         <motion.button
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
@@ -78,7 +85,14 @@ export default function Navbar() {
         {/* MOBILE TOGGLE */}
         <button
           onClick={() => setOpen(true)}
-          className={`md:hidden ${scrolled ? "text-gray-900" : "text-white"}`}
+          className={`md:hidden transition-colors
+          ${
+            scrolled
+              ? "text-gray-900"
+              : isLightSlide
+              ? "text-[#D32F2F]"
+              : "text-white"
+          }`}
         >
           <Menu size={28} />
         </button>
@@ -111,7 +125,6 @@ export default function Navbar() {
                 </li>
               ))}
 
-              {/* MOBILE CTA */}
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 whileHover={{ scale: 1.05 }}
